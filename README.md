@@ -8,6 +8,6 @@ https://hub.docker.com/r/opsrock/amzn_linux_with/builds
 
 > tar utility is not present in this image but it is required. Please install it to have workflow workspace capability.
 
-2.
+2/2023.
 
 > gzip utility is not present in this image but it is required. Please install it to have workflow workspace capability.
