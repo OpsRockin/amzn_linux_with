@@ -10,10 +10,6 @@ on:
     - cron: '41 0 * * *'
   push:
     branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ "main" ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -76,7 +72,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "2-with-sources"
+          tags: "ghcr.io/OpsRockin/amzn_linux_with:2-with-sources"
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -93,4 +89,4 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "2-with-sources" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        run: echo "ghcr.io/OpsRockin/amzn_linux_with:2-with-sources" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
