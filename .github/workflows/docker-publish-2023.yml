@@ -73,7 +73,7 @@ jobs:
           file: 2023/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: "ghcr.io/OpsRockin/amzn_linux_with:2023"
+          tags: "ghcr.io/opsrockin/amzn_linux_with:2023"
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -90,4 +90,4 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "ghcr.io/OpsRockin/amzn_linux_with:2023" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        run: echo "ghcr.io/opsrockin/amzn_linux_with:2023" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
