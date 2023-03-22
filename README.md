@@ -1,6 +1,6 @@
 # Amazon Linux2 Docker Image for CircleCI workflow workspace
 
-https://hub.docker.com/r/opsrock/amzn_linux_with/builds
+https://github.com/opsrockin/amzn_linux_with/pkgs/container/amzn_linux_with
 
 ## Why...?
 
